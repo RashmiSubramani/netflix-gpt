@@ -29,6 +29,14 @@
 - Update store with trailer video data
 - Embedded youtube video with autoplay and mute
 - Tailwind classes to make MainContainer awesome
+- Build Secondary Component
+- Build Movie List
+- build Movie Card
+- TMDB Image CDN URL
+- Made the Browsre page amazing with Tailwind CSS
+- useGetPopularMovies Custom hook
+- useGetTopRatedMovies Custom hook
+- useGetUpcomingMovies Custom hook
 
 npm i -D @reduxjs/toolkit
 npm i react-redux
@@ -52,4 +60,4 @@ Logged In :
 
 - Netflix GPT
   - Search bar
-    s- Moview suggestions
+    - Movie suggestions
