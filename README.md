@@ -3,8 +3,21 @@
 - create react app
 - configured tailwind css
 - Header
+- Routing of App
 - Login form
-- SIgn Up Form
+- Sign Up Form
+- Form validation
+- useRef Hook
+- Firebase setup
+- Deploy app to prod
+- Create Sign up user account
+- Implement Sign in user API
+- Create Redux store with userSlice
+- Implmented sign out
+- Update Profile
+
+npm i -D @reduxjs/toolkit
+npm i react-redux
 
 # Features
 
