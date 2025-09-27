@@ -5,11 +5,11 @@ export function validateForm(email, password, fullName = "") {
     /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(
       password
     );
-  let isValidFUllName = /^[^./\\]+\.txt$/.test(fullName);
+  let isValidFullName = /^[a-zA-Z ]{2,}$/.test(fullName);
 
   if (!isValidEmailRegex) return "Email id is not valid";
   if (!isValidPasswodRegex) return "Password is not valid";
-  if (fullName && !isValidFUllName) return "Full name is not valid";
+  if (fullName && !isValidFullName) return "Full name is not valid";
 
   return null;
 }

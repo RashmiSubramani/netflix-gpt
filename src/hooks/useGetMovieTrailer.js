@@ -20,7 +20,7 @@ export function useGetMovieTrailer(movieId) {
 
     dispatch(addTrailerVideo(trailer));
   }
-  useEffect(function getMovieVideoData() {
+  useEffect(function getMovieVideosAPI() {
     getMovieVideos();
   }, []);
 }

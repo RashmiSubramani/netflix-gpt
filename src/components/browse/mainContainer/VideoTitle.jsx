@@ -6,7 +6,7 @@ export default function VideoTitle({ title, overview, posterPath }) {
         alt="movie"
         className="w-52 mb-4 rounded-lg"
       />
-      <h1 className="text-3xl font-bold mb-2">{title}</h1>
+      <h1 className="text-4xl font-bold mb-2">{title}</h1>
       <p className="text-md w-1/4 mb-4">{overview}</p>
       <div className="flex gap-4">
         <button className="text-black bg-white p-4 rounded-lg font-bold text-xl px-12 flex items-center gap-2 hover:bg-opacity-80">
