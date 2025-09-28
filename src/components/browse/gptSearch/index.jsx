@@ -1,10 +1,11 @@
-import { BACKGROUND_URL } from "../../../utils/constants";
+import { BACKGROUND_URL } from "../../../utils/constants/constants";
 import GPTSearchBar from "./gptSearchBar";
 import GPTSuggestions from "./gptSuggestions";
 
 export default function GPTSearch() {
   return (
     <div className="w-full h-full">
+      {/* Background image */}
       <div className="fixed -z-10 ">
         <img
           src={BACKGROUND_URL}
@@ -12,7 +13,11 @@ export default function GPTSearch() {
           className="h-screen w-screen object-cover"
         />
       </div>
+
+      {/* GPT Search input */}
       <GPTSearchBar />
+
+      {/* GPT suggested movies */}
       <GPTSuggestions />
     </div>
   );

@@ -9,15 +9,26 @@ import Header from "../header";
 import { validateForm } from "../../utils/validate";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../utils/store/slice/userSlice";
-import { BACKGROUND_URL } from "../../utils/constants/constants";
+import {
+  BACKGROUND_URL,
+  BUTTON_LABELS,
+  DEFAULT_AVATAR_URL,
+  FORM_TITLES,
+  INVALID_CREDENTIALS_MSG,
+} from "../../utils/constants/constants";
 
 export default function Login() {
   const dispatch = useDispatch();
+
+  // State to toggle between Sign In and Sign Up form
   const [isSignInForm, setIsSignInForm] = useState(true);
+  // State to handle error messages
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  // Refs for input fields
   const fullNameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const [errorMessage, setErrorMessage] = useState(null);
 
   function toggleSignInForm() {
     setIsSignInForm(!isSignInForm);
@@ -32,6 +43,7 @@ export default function Login() {
     );
     setErrorMessage(error);
 
+    // Stop execution if validation fails
     if (errorMessage) return;
 
     if (!isSignInForm) {
@@ -42,11 +54,11 @@ export default function Login() {
         passwordRef.current.value
       )
         .then((userCredential) => {
-          // Signed up
+          // --- SIGN UP ---
           const user = userCredential.user;
           updateProfile(user, {
             displayName: fullNameRef.current?.value,
-            photoURL: "https://thumbs.dreamstime.com/b/user-icon-9233164.jpg",
+            photoURL: DEFAULT_AVATAR_URL,
           })
             .then(() => {
               // Profile updated!
@@ -62,10 +74,10 @@ export default function Login() {
           // const errorCode = error.code;
           // const errorMessage = error.message;
           // setErrorMessage(errorCode + "-" + errorMessage);
-          setErrorMessage("Invalid credentials"); //auth/invalid-credential-Firebase: Error (auth/invalid-credential).
+          setErrorMessage(INVALID_CREDENTIALS_MSG); //auth/invalid-credential-Firebase: Error (auth/invalid-credential).
         });
     } else {
-      //Sign In
+      // --- SIGN IN ---
       signInWithEmailAndPassword(
         auth,
         emailRef.current.value,
@@ -76,20 +88,24 @@ export default function Login() {
           // const errorCode = error.code;
           // const errorMessage = error.message;
           // setErrorMessage(errorCode + "-" + errorMessage);
-          setErrorMessage("Invalid credentials."); //auth/invalid-credential-Firebase: Error (auth/invalid-credential).
+          setErrorMessage(INVALID_CREDENTIALS_MSG); //auth/invalid-credential-Firebase: Error (auth/invalid-credential).
         });
     }
   }
 
   return (
     <>
+      {/* App Header */}
       <Header />
 
+      {/* Background Image */}
       <img
         src={BACKGROUND_URL}
         alt="background"
         className="h-screen object-cover absolute"
       />
+
+      {/* Auth Form */}
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -97,7 +113,7 @@ export default function Login() {
         className="absolute bg-black w-full md:w-3/12  my-36 mx-auto right-0 left-0 p-12 flex gap-1 flex-col text-white bg-black/70 rounded-xl"
       >
         <h1 className="font-bold text-2xl md:text-3xl py-4">
-          {isSignInForm ? "Sign In" : "Sign Up"}
+          {isSignInForm ? FORM_TITLES.SIGN_IN : FORM_TITLES.SIGN_UP}
         </h1>
 
         {!isSignInForm && (
@@ -155,6 +171,7 @@ export default function Login() {
           <></>
         )}
 
+        {/* Toggle link between Sign In and Sign Up */}
         <span className="text-gray-400">
           {isSignInForm ? "New to Netflix?" : "Already have an account?"}{" "}
           <button
@@ -162,7 +179,7 @@ export default function Login() {
             onClick={toggleSignInForm}
             className="font-bold text-white underline"
           >
-            {isSignInForm ? "Sign up now." : "Sign in"}
+            {isSignInForm ? BUTTON_LABELS.SIGN_IN : BUTTON_LABELS.SIGN_UP}
           </button>
         </span>
       </form>

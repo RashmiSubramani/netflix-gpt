@@ -4,36 +4,46 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../../utils/store/slice/userSlice";
-import { LOGO_URL, SUPPORTED_LANGUAGES } from "../../utils/constants/constants";
+import {
+  FALLBACK_USER_AVATAR,
+  HEADER_CONSTANTS,
+  LOGO_URL,
+  NAV_ROUTES,
+  SUPPORTED_LANGUAGES,
+} from "../../utils/constants/constants";
 import { toggleGPTSearchView } from "../../utils/store/slice/gptSlice";
 import { changeLanguage } from "../../utils/store/slice/configSlice";
 
 export default function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  // Redux store values
   const user = useSelector((store) => store.user);
   const showGPTSearch = useSelector((store) => store.gpt.showGPTSearch);
 
+  // Handle Firebase auth state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
+        // User is signed in
         const { uid, email, displayName, photoURL } = user;
         dispatch(addUser({ uid, email, displayName, photoURL }));
-        navigate("/browse");
+        navigate(NAV_ROUTES.BROWSE);
       } else {
         // User is signed out
         dispatch(removeUser());
-        navigate("/");
+        navigate(NAV_ROUTES.HOME);
       }
     });
-    //Unsubscribe when component unmounts
+
+    // Cleanup subscription on component unmount
     return () => {
       unsubscribe();
     };
   }, []);
 
+  // Handle Sign out
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -57,9 +67,10 @@ export default function Header() {
       {/* Logo */}
       <img className="w-44" src={LOGO_URL} alt="logo" />
 
-      {/* User Icon + Dropdown (hover-based) */}
+      {/* Show only if user is logged in */}
       {user && (
         <div className="flex gap-2">
+          {/* Language Selector (visible only in GPT search mode) */}
           {showGPTSearch && (
             <select
               className="py-2 px-4 mr-2 bg-gray-900 text-white rounded-lg font-bold cursor-pointer"
@@ -73,19 +84,20 @@ export default function Header() {
             </select>
           )}
 
+          {/* GPT Search toggle button */}
           <button
             className="py-2 px-4 border border-white rounded-lg font-bold cursor-pointer"
             onClick={handleGPTSearchClick}
           >
-            {showGPTSearch ? "HomePage" : "GPT Search"}
+            {showGPTSearch
+              ? HEADER_CONSTANTS.HOMEPAGE
+              : HEADER_CONSTANTS.GPT_SEARCH}
           </button>
+
+          {/* User profile dropdown */}
           <div className="relative group">
             <img
-              src={
-                user?.photoURL
-                  ? user.photoURL
-                  : "https://occ-0-2041-3663.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABbDdrpeZOAMJgDuzD5581AFTiw4_pFFINZT81G61PDjkN2d4-kO6cfqu1gWzA_CHiiCPbCP3fTv0yUIRARgjzBQX5k5YWAU.png?r=98e"
-              }
+              src={user?.photoURL ? user.photoURL : FALLBACK_USER_AVATAR}
               alt="user"
               className="w-10 h-10 rounded cursor-pointer"
             />
@@ -93,16 +105,16 @@ export default function Header() {
             {/* Dropdown appears on hover */}
             <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-40 bg-black text-white cursor-pointer rounded-md shadow-lg opacity-0 scale-95 translate-y-2 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 transition-all duration-200 ease-out">
               <button className="block w-full px-4 py-3 text-left hover:bg-gray-800 hover:rounded-md">
-                Profile
+                {HEADER_CONSTANTS.PROFILE}
               </button>
               <button className="block w-full px-4 py-3 text-left hover:bg-gray-800 hover:rounded-md">
-                Settings
+                {HEADER_CONSTANTS.SETTINGS}
               </button>
               <button
                 onClick={handleSignOut}
                 className="block w-full px-4 py-3 text-left hover:bg-gray-800 hover:rounded-md"
               >
-                Sign Out
+                {HEADER_CONSTANTS.SIGN_OUT}
               </button>
             </div>
           </div>

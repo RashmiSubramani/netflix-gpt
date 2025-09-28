@@ -1,8 +1,8 @@
 import { IMAGE_CDN_URL } from "../../../utils/constants/constants";
 
 export default function MovieCard({ posterPath }) {
+  // Shimmer UI while posterPath is not available
   if (!posterPath) {
-    // Shimmer UI
     return (
       <div className="w-36 md:w-48 pr-4 h-full">
         <div className="relative w-full h-full rounded-md overflow-hidden bg-gray-300/80">

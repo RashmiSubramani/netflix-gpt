@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { language } from "../../../../utils/constants/languageConstants";
-import client from "../../../../utils/openai";
 import { useRef } from "react";
-import { API_OPTIONS } from "../../../../utils/constants/constants";
+import {
+  API_OPTIONS,
+  GPT_API_URL,
+} from "../../../../utils/constants/constants";
 import { addGPTSearchMovieResult } from "../../../../utils/store/slice/gptSlice";
 
 export default function GPTSearchBar() {
@@ -15,7 +17,7 @@ export default function GPTSearchBar() {
 
     try {
       // 1️⃣ Call backend GPT endpoint
-      const response = await fetch("http://localhost:5000/api/gpt", {
+      const response = await fetch(GPT_API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,19 +28,24 @@ export default function GPTSearchBar() {
 
       console.log("Data", data);
 
-      // 2️⃣ Search TMDB for each recommended movie
+      // 2️⃣ Parse GPT output into clean movie names
       const gptMovies = data.output
-        .split("\n") // split by each line
+        .split("\n") // split by line (in case GPT returns multiple lines)
+        .flatMap((line) => line.split(",")) // split comma-separated items in each line
         .map((m) =>
           m
             .replace(/^\d+\.\s*/, "")
             .replace(/["]/g, "")
             .trim()
-        ) // remove numbers, dots, quotes, and trim
+        )
         .filter(Boolean);
 
       const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie)); // [Promise, Promise, Promise, Promise, Promise]
+
+      // 3️⃣ Fetch movie details from TMDB
       const tmdbResults = await Promise.all(promiseArray);
+
+      // 4️⃣ Update Redux state
       dispatch(
         addGPTSearchMovieResult({
           movieNames: gptMovies,
@@ -68,6 +75,7 @@ export default function GPTSearchBar() {
         className="w-full md:w-1/2 bg-black grid grid-cols-12 rounded-lg m-10"
         onSubmit={(e) => e.preventDefault()}
       >
+        {/* GPT Search Input */}
         <input
           id="gptSearch"
           name="gptSerach"
@@ -76,6 +84,7 @@ export default function GPTSearchBar() {
           className="col-span-9 p-4 m-4 bg-transparent  border-4 border-gray-400 rounded-xl text-white"
           ref={searchTextRef}
         />
+        {/* Search Button */}
         <button
           className="col-span-3 p-6 m-4 rounded-xl text-white bg-red-600 "
           onClick={handleGPTSearch}

@@ -10,6 +10,8 @@ import SecondaryContainer from "./secondaryContainer";
 
 export default function Browse() {
   const showGPTSearch = useSelector((store) => store.gpt.showGPTSearch);
+
+  // Fetch movie data using hooks
   useGetNowPlayingMovies();
   useGetPopularMovies();
   useGetTopRatedMovies();
