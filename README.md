@@ -1,67 +1,107 @@
-# Netflix GPT
+## Netflix GPT
 
-- create react app
-- configured tailwind css
+Netflix GPT is a React-based streaming movie application with AI-powered search suggestions using GPT. It fetches data from TMDB API and provides a smooth, responsive browsing experience similar to Netflix.
+
+---
+
+## Tech Stack
+
+- React (Create React App)
+- React-router
+- Redux Toolkit + React-Redux
+- Tailwind CSS
+- Firebase Authentication
+- TMDB API
+- OpenAI GPT API
+- YouTube embedded trailers
+- React Hooks (useState, useEffect, useRef, custom hooks)
+- Responsive Design (mobile-first, Tailwind `md:` breakpoints)
+
+---
+
+## Features Summary
+
+### Login/Sign Up
+
+- Sign In / Sign Up Form
+- Redirect to Browse Page
+
+### Browse (after authentication)
+
 - Header
-- Routing of App
-- Login form
-- Sign Up Form
-- Form validation
-- useRef Hook
-- Firebase setup
-- Deploy app to prod
-- Create Sign up user account
-- Implement Sign in user API
-- Create Redux store with userSlice
-- Implmented sign out
-- Update Profile
-- BugFix: Sign up user displayName and profile picture update
-- BugFix: if the user is not logged in Redirect /browse to Login Page and vice-versa
-- Unubscribed the onAuthStateChange callback
-- Introduced constants file
-- Registered in TMDB API and create an app and get access token
-- Get NowPlayingMoview List api call from TMDB
-- Created custom hook for now playing movie
-- Created movieSlice
-- Updated store with movies data
-- Plan for MainContainer and SecondaryContainer
-- Fetch data for Trailer video
-- Update store with trailer video data
-- Embedded youtube video with autoplay and mute
-- Tailwind classes to make MainContainer awesome
-- Build Secondary Component
-- Build Movie List
-- build Movie Card
-- TMDB Image CDN URL
-- Made the Browsre page amazing with Tailwind CSS
-- useGetPopularMovies Custom hook
-- useGetTopRatedMovies Custom hook
-- useGetUpcomingMovies Custom hook
-- GPT Search Page
-- GPT Search Bar
-- Multi Language feature
-- Integrate GPT APIs
+- Main Movie
 
-npm i -D @reduxjs/toolkit
-npm i react-redux
+  - Trailer in Background
+  - Title & Description
 
-# Features
+- Secondary Movie Section
 
-Not Logged In :
+  - Movie Suggestions (Movie Lists × N)
 
-- Login/Sign up form - once done redirect to Browse page
+### Netflix GPT
 
-Logged In :
+- Search Bar
+- Movie Suggestions powered by GPT
 
-- Browse
+---
 
-  - Header
-  - Main movie
-    - Trailer in Background
-    - Title & Description
-    - Movie Suggestions
-      - Movie List \* n
+## Features
 
-- Netflix GPT
-  - Search bar
-    - Movie suggestions
+### 1. Authentication
+
+- Sign Up / Login forms
+- Firebase Authentication
+- Redirect users based on login status (`/browse` requires login)
+- Update Profile (display name & profile picture)
+- Sign out functionality
+- Unsubscribed `onAuthStateChanged` listener for clean-up
+
+### 2. Browse Page
+
+#### UI Components
+
+- **Header**: Logo, Search functionality, Profile
+
+- **Main Movie Section**:
+
+  - Background trailer embedded from YouTube (autoplay & muted).
+  - Movie title and description overlay.
+
+- **Secondary Movie Section**:
+
+  - Movies list displayed based on Popularity, Upcoming, Top Rated, etc.
+
+- Fully responsive design using Tailwind CSS.
+
+- Mobile-first layout: defaults to mobile, `md:` breakpoints for desktop enhancements.
+
+#### Movie Data & State Management
+
+- Fetch movies from TMDB API:
+
+  - Now Playing
+  - Popular
+  - Top Rated
+  - Upcoming
+
+- **Redux Store Slices**:
+
+  - `movieSlice`: stores fetched movie data.
+  - `gptSlice`: stores AI-powered movie suggestions.
+  - `userSlice`: stores user data
+  - `configSlice`: stores language selected (multi-language)
+
+- **Custom Hooks for API calls**:
+
+  - `useGetNowPlayingMovies`
+  - `useGetPopularMovies`
+  - `useGetTopRatedMovies`
+  - `useGetUpcomingMovies`
+
+### 3. Netflix GPT (AI Integration)
+
+- Search bar with multi-language support
+- GPT API integration to generate movie suggestions
+- Fetch movies suggested by GPT from TMDB
+- Display suggestions using reusable Movie List component
+- Memoization to optimize performance

@@ -8,8 +8,8 @@ import { auth } from "../../utils/firebase";
 import Header from "../header";
 import { validateForm } from "../../utils/validate";
 import { useDispatch } from "react-redux";
-import { addUser } from "../../utils/userSlice";
-import { BACKGROUND_URL } from "../../utils/constants";
+import { addUser } from "../../utils/store/slice/userSlice";
+import { BACKGROUND_URL } from "../../utils/constants/constants";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -88,15 +88,15 @@ export default function Login() {
       <img
         src={BACKGROUND_URL}
         alt="background"
-        className="w-full absolute h-full"
+        className="h-screen object-cover absolute"
       />
       <form
         onSubmit={(e) => {
           e.preventDefault();
         }}
-        className="absolute bg-black md:w-3/12  my-36 mx-auto right-0 left-0 p-12 flex gap-1 flex-col text-white bg-black/70 rounded-lg"
+        className="absolute bg-black w-full md:w-3/12  my-36 mx-auto right-0 left-0 p-12 flex gap-1 flex-col text-white bg-black/70 rounded-xl"
       >
-        <h1 className="font-bold text-3xl py-4">
+        <h1 className="font-bold text-2xl md:text-3xl py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
 

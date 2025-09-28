@@ -3,10 +3,10 @@ import { auth } from "../../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { addUser, removeUser } from "../../utils/userSlice";
-import { LOGO_URL, SUPPORTED_LANGUAGES } from "../../utils/constants";
-import { toggleGPTSearchView } from "../../utils/gptSlice";
-import { changeLanguage } from "../../utils/configSlice";
+import { addUser, removeUser } from "../../utils/store/slice/userSlice";
+import { LOGO_URL, SUPPORTED_LANGUAGES } from "../../utils/constants/constants";
+import { toggleGPTSearchView } from "../../utils/store/slice/gptSlice";
+import { changeLanguage } from "../../utils/store/slice/configSlice";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -53,7 +53,7 @@ export default function Header() {
   }
 
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between items-center text-white">
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between items-center text-white">
       {/* Logo */}
       <img className="w-44" src={LOGO_URL} alt="logo" />
 
