@@ -25,7 +25,6 @@ export default function Login() {
 
   function handleButtonClick() {
     //Validate form data
-    console.log(emailRef, passwordRef);
     let error = validateForm(
       emailRef.current.value,
       passwordRef.current.value,
@@ -58,12 +57,10 @@ export default function Login() {
               // An error occurred
               setErrorMessage(error.message);
             });
-          console.log("Signed Up", user);
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log("Error signing in", errorCode, errorMessage);
+          // const errorCode = error.code;
+          // const errorMessage = error.message;
           // setErrorMessage(errorCode + "-" + errorMessage);
           setErrorMessage("Invalid credentials"); //auth/invalid-credential-Firebase: Error (auth/invalid-credential).
         });
@@ -74,15 +71,10 @@ export default function Login() {
         emailRef.current.value,
         passwordRef.current.value
       )
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          console.log("Signed In", user);
-        })
+        .then((userCredential) => {})
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log("Error signing in", errorCode, errorMessage);
+          // const errorCode = error.code;
+          // const errorMessage = error.message;
           // setErrorMessage(errorCode + "-" + errorMessage);
           setErrorMessage("Invalid credentials."); //auth/invalid-credential-Firebase: Error (auth/invalid-credential).
         });

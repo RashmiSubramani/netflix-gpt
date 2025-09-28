@@ -37,6 +37,10 @@
 - useGetPopularMovies Custom hook
 - useGetTopRatedMovies Custom hook
 - useGetUpcomingMovies Custom hook
+- GPT Search Page
+- GPT Search Bar
+- Multi Language feature
+- Integrate GPT APIs
 
 npm i -D @reduxjs/toolkit
 npm i react-redux

@@ -9,8 +9,7 @@ export default function SecondaryContainer() {
       {movies?.nowPlayingMovies &&
         movies?.popularMovies &&
         movies?.topRatedMovies &&
-        movies?.upcomingMovies &&
-        movies?.latestMovies && (
+        movies?.upcomingMovies && (
           <div className="-mt-60 z-20 relative">
             <MovieList
               title={"Now Playing"}
