@@ -179,7 +179,7 @@ export default function Login() {
             onClick={toggleSignInForm}
             className="font-bold text-white underline"
           >
-            {isSignInForm ? BUTTON_LABELS.SIGN_IN : BUTTON_LABELS.SIGN_UP}
+            {isSignInForm ? BUTTON_LABELS.SIGN_UP : BUTTON_LABELS.SIGN_IN}
           </button>
         </span>
       </form>
