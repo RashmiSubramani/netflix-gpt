@@ -99,7 +99,7 @@ export default function Header() {
             <img
               src={user?.photoURL ? user.photoURL : FALLBACK_USER_AVATAR}
               alt="user"
-              className="w-10 h-10 rounded cursor-pointer"
+              className="w-10 h-10 rounded-full cursor-pointer"
             />
 
             {/* Dropdown appears on hover */}

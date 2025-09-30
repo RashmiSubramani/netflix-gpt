@@ -6,8 +6,7 @@ export const NAV_ROUTES = {
 };
 
 // LOGIN CONSTANTS
-export const DEFAULT_AVATAR_URL =
-  "https://thumbs.dreamstime.com/b/user-icon-9233164.jpg";
+export const DEFAULT_AVATAR_URL = "/user_icon1.jpg";
 
 export const INVALID_CREDENTIALS_MSG = "Invalid credentials.";
 
