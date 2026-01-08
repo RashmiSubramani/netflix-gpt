@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Netflix GPT Backend API",
   "main": "api/gpt.js",
+  "type": "module",
   "dependencies": {
     "openai": "^5.23.1"
   },
