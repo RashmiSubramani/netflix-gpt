@@ -55,7 +55,7 @@ export const MOVIE_CATEGORIES = [
 ];
 
 // GPT SEARCH
-export const GPT_API_URL = "http://localhost:5000/api/gpt";
+export const GPT_API_URL = "https://netflix-gpt-api-production.up.railway.app/api/gpt";
 
 // API KEYS - TO BE MOVED TO .env FILE
 export const API_OPTIONS = {

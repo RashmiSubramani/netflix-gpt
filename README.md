@@ -10,22 +10,38 @@ Experience the full Netflix clone functionality with AI-powered movie search, au
 
 ## 🔧 Backend API
 
-**Backend API deployed on Vercel** - Serverless OpenAI GPT integration for movie recommendations.
+**Backend API deployed on Railway** - Express.js server with OpenAI GPT integration for movie recommendations.
+
+**Live API Endpoint**: [https://netflix-gpt-api-production.up.railway.app/api/gpt](https://netflix-gpt-api-production.up.railway.app/api/gpt)
+
+### Backend Features:
+- Express.js REST API
+- OpenAI GPT-3.5 Turbo integration
+- CORS enabled for cross-origin requests
+- Environment-based configuration
+- Deployed on Railway hosting platform
 
 ---
 
 ## Tech Stack
 
+### Frontend
 - React (Create React App)
 - React-router
 - Redux Toolkit + React-Redux
 - Tailwind CSS
-- Firebase Authentication
-- TMDB API
-- OpenAI GPT API
-- YouTube embedded trailers
+- Firebase Authentication & Hosting
 - React Hooks (useState, useEffect, useRef, custom hooks)
 - Responsive Design (mobile-first, Tailwind `md:` breakpoints)
+
+### Backend
+- Express.js
+- OpenAI GPT API
+- Railway Hosting
+
+### APIs
+- TMDB API (The Movie Database)
+- YouTube embedded trailers
 
 ---
 
