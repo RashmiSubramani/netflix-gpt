@@ -130,3 +130,4 @@ Experience the full Netflix clone functionality with AI-powered movie search, au
 - Fetch movies suggested by GPT from TMDB
 - Display suggestions using reusable Movie List component
 - Memoization to optimize performance
+# Force deployment trigger
