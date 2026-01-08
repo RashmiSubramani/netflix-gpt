@@ -8,6 +8,10 @@ Netflix GPT is a React-based streaming movie application with AI-powered search 
 
 Experience the full Netflix clone functionality with AI-powered movie search, authentication, and responsive streaming interface.
 
+## 🔧 Backend API
+
+**Backend API deployed on Vercel** - Serverless OpenAI GPT integration for movie recommendations.
+
 ---
 
 ## Tech Stack
