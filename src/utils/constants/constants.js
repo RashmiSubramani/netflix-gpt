@@ -54,8 +54,10 @@ export const MOVIE_CATEGORIES = [
   { key: "topRatedMovies", title: "Top Rated" },
 ];
 
-// GPT SEARCH
-export const GPT_API_URL = "http://localhost:5000/api/gpt";
+// GPT SEARCH - VERCEL DEPLOYMENT
+// Replace 'your-project-name' with your actual Vercel deployment URL after deployment
+// Format: https://your-project-name.vercel.app/api/gpt
+export const GPT_API_URL = "https://netflix-gpt-backend.vercel.app/api/gpt";
 
 // API KEYS - TO BE MOVED TO .env FILE
 export const API_OPTIONS = {

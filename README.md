@@ -2,6 +2,12 @@
 
 Netflix GPT is a React-based streaming movie application with AI-powered search suggestions using GPT. It fetches data from TMDB API and provides a smooth, responsive browsing experience similar to Netflix.
 
+## 🌐 Live Demo
+
+**[🚀 Try Netflix GPT Live](https://netflixgpt-256a6.web.app/)**
+
+Experience the full Netflix clone functionality with AI-powered movie search, authentication, and responsive streaming interface.
+
 ---
 
 ## Tech Stack
