@@ -1,0 +1,13 @@
+# Ignore frontend files
+src/
+public/
+build/
+node_modules/
+package-lock.json
+.firebaserc
+firebase.json
+tailwind.config.js
+README.md
+
+# Keep only backend
+!backend/
