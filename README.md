@@ -39,10 +39,11 @@ Experience the full Netflix clone functionality with AI-powered movie search, au
 ![Screenshot 2026-01-07 at 12 53 20 AM (1)](https://github.com/user-attachments/assets/8f625203-bb81-4567-9fa7-8bba851663f5)
 
 
+## Search using GPT 
+<img width="2052" height="1242" alt="Screenshot 2026-01-08 at 4 32 04 PM (1)" src="https://github.com/user-attachments/assets/89d7d47e-3f8e-48d3-8f24-fa2c8f26a8db" />
 
 
-
-
+---
 
 ## Features Summary
 
