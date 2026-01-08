@@ -25,6 +25,21 @@ Experience the full Netflix clone functionality with AI-powered movie search, au
 
 ---
 
+## Login/Sign Up 
+![Screenshot 2026-01-07 at 1 00 19 AM](https://github.com/user-attachments/assets/f01a7a71-aed3-4dee-b801-88f5ae4e3df8)
+
+## Home Page with Banner
+<img width="2056" height="1245" alt="image" src="https://github.com/user-attachments/assets/bffa65da-b16c-4abf-be96-733e39fd511d" />
+
+## Different Lists 
+![Screenshot 2026-01-07 at 12 53 20 AM (1)](https://github.com/user-attachments/assets/8f625203-bb81-4567-9fa7-8bba851663f5)
+
+
+
+
+
+
+
 ## Features Summary
 
 ### Login/Sign Up
