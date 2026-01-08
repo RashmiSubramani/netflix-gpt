@@ -1,0 +1,8 @@
+{
+  "name": "netflix-gpt-api",
+  "version": "1.0.0",
+  "description": "Netflix GPT API Backend",
+  "dependencies": {
+    "openai": "^5.23.1"
+  }
+}

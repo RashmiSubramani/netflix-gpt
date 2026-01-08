@@ -3,5 +3,17 @@
     "api/gpt.js": {
       "maxDuration": 10
     }
-  }
+  },
+  "builds": [
+    {
+      "src": "api/gpt.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/gpt",
+      "dest": "/api/gpt.js"
+    }
+  ]
 }
