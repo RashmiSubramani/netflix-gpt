@@ -8,19 +8,6 @@ Netflix GPT is a React-based streaming movie application with AI-powered search 
 
 Experience the full Netflix clone functionality with AI-powered movie search, authentication, and responsive streaming interface.
 
-## 🔧 Backend API
-
-**Backend API deployed on Railway** - Express.js server with OpenAI GPT integration for movie recommendations.
-
-**Live API Endpoint**: [https://netflix-gpt-api-production.up.railway.app/api/gpt](https://netflix-gpt-api-production.up.railway.app/api/gpt)
-
-### Backend Features:
-- Express.js REST API
-- OpenAI GPT-3.5 Turbo integration
-- CORS enabled for cross-origin requests
-- Environment-based configuration
-- Deployed on Railway hosting platform
-
 ---
 
 ## Tech Stack
@@ -42,6 +29,21 @@ Experience the full Netflix clone functionality with AI-powered movie search, au
 ### APIs
 - TMDB API (The Movie Database)
 - YouTube embedded trailers
+
+---
+
+## Backend API
+
+**Backend API deployed on Railway** - Express.js server with OpenAI GPT integration for movie recommendations.
+
+**Live API Endpoint**: [https://netflix-gpt-api-production.up.railway.app/api/gpt](https://netflix-gpt-api-production.up.railway.app/api/gpt)
+
+### Backend Features:
+- Express.js REST API
+- OpenAI GPT-3.5 Turbo integration
+- CORS enabled for cross-origin requests
+- Environment-based configuration
+- Deployed on Railway hosting platform
 
 ---
 
@@ -155,4 +157,4 @@ https://github.com/user-attachments/assets/e3d8c7ef-30d9-4a3b-b267-6fce246db738
 - Fetch movies suggested by GPT from TMDB
 - Display suggestions using reusable Movie List component
 - Memoization to optimize performance
-# Force deployment trigger
+
