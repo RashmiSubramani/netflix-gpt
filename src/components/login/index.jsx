@@ -44,7 +44,7 @@ export default function Login() {
     setErrorMessage(error);
 
     // Stop execution if validation fails
-    if (errorMessage) return;
+    if (error) return;
 
     if (!isSignInForm) {
       //Sign Up
